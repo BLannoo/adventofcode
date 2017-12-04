@@ -3,7 +3,7 @@ package com.blannoo.adventofcode.day1;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-public class Day1ChallengeTest {
+public class Day1ChallengeSilverTest {
     private static final String MY_EXAMPLE =
             "738576468625144447399791512378297253634373265751783467175946279546121378242834293189618169557899627" +
                     "43213174192423595347839573729329537743363381184889671727276518624988381953176542897975586834585" +
@@ -32,26 +32,26 @@ public class Day1ChallengeTest {
 
     @Test
     public void Given1122_WhenRun_ThenReturn2() throws Exception {
-        Assertions.assertThat(day1Challenge.run("1122")).isEqualTo(3);
+        Assertions.assertThat(day1Challenge.run_silver_challenge("1122")).isEqualTo(3);
     }
 
     @Test
     public void Given1111_WhenRun_ThenReturn4() throws Exception {
-        Assertions.assertThat(day1Challenge.run("1111")).isEqualTo(4);
+        Assertions.assertThat(day1Challenge.run_silver_challenge("1111")).isEqualTo(4);
     }
 
     @Test
     public void Given1234_WhenRun_ThenReturn0() throws Exception {
-        Assertions.assertThat(day1Challenge.run("1234")).isEqualTo(0);
+        Assertions.assertThat(day1Challenge.run_silver_challenge("1234")).isEqualTo(0);
     }
 
     @Test
     public void Given91212129_WhenRun_ThenReturn9() throws Exception {
-        Assertions.assertThat(day1Challenge.run("91212129")).isEqualTo(9);
+        Assertions.assertThat(day1Challenge.run_silver_challenge("91212129")).isEqualTo(9);
     }
 
     @Test
     public void GivenMyExample_WhenRun_ThenReturnMyAnswer() throws Exception {
-        Assertions.assertThat(day1Challenge.run(MY_EXAMPLE)).isEqualTo(1171);
+        Assertions.assertThat(day1Challenge.run_silver_challenge(MY_EXAMPLE)).isEqualTo(1171);
     }
 }
