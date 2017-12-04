@@ -8,6 +8,6 @@ public class day1Test {
 
     @Test
     public void Given1122_WhenRun_Then2() throws Exception {
-        Assertions.assertThat(day1Challenge.run(1122)).isEqualTo(0);
+        Assertions.assertThat(day1Challenge.run(1122)).isEqualTo(2);
     }
 }
