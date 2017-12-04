@@ -4,8 +4,12 @@ import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
 class Day1Challenge {
-    long run_silver_challenge(String input) {
+    long runSilverChallenge(String input) {
         return run(input, i -> isSameAsNext(input, i));
+    }
+
+    long runGoldChallenge(String input) {
+        return run(input, i -> isSameAsSteps(input, i, input.length()/2));
     }
 
     private long run(String input, IntPredicate intPredicate) {
@@ -20,6 +24,10 @@ class Day1Challenge {
     }
 
     private boolean isSameAsNext(String input, int i) {
-        return input.charAt(i) == input.charAt((i + 1) % input.length());
+        return isSameAsSteps(input, i, 1);
+    }
+
+    private boolean isSameAsSteps(String input, int i, int stepSize) {
+        return input.charAt(i) == input.charAt((i + stepSize) % input.length());
     }
 }
