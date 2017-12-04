@@ -3,8 +3,6 @@ package com.blannoo.adventofcode.day1;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import java.math.BigInteger;
-
 public class Day1ChallengeTest {
     private static final String MY_EXAMPLE =
             "738576468625144447399791512378297253634373265751783467175946279546121378242834293189618169557899627" +
@@ -34,7 +32,7 @@ public class Day1ChallengeTest {
 
     @Test
     public void Given1122_WhenRun_ThenReturn2() throws Exception {
-        Assertions.assertThat(day1Challenge.run("1122")).isEqualTo(2);
+        Assertions.assertThat(day1Challenge.run("1122")).isEqualTo(3);
     }
 
     @Test
@@ -54,6 +52,6 @@ public class Day1ChallengeTest {
 
     @Test
     public void GivenMyExample_WhenRun_ThenReturnMyAnswer() throws Exception {
-        Assertions.assertThat(day1Challenge.run(MY_EXAMPLE)).isEqualTo(0);
+        Assertions.assertThat(day1Challenge.run(MY_EXAMPLE)).isEqualTo(1171);
     }
 }
