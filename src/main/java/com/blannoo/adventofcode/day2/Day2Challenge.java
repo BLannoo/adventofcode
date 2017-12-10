@@ -1,5 +1,7 @@
 package com.blannoo.adventofcode.day2;
 
+import com.blannoo.adventofcode.utils.FileUtil;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,6 +12,9 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 class Day2Challenge {
+
+    private FileUtil fileUtil = new FileUtil();
+
     long runSilverChallenge(String inputFileName) throws IOException {
         return checkSum(inputFileName, this::differenceMinMax);
     }
@@ -19,11 +24,8 @@ class Day2Challenge {
     }
 
     private long checkSum(String inputFileName, ToLongFunction<String> lineEvaluator) {
-        final InputStream stream = this.getClass().getResourceAsStream(inputFileName);
-        final InputStreamReader reader = new InputStreamReader(stream);
-        final BufferedReader buffered = new BufferedReader(reader);
-
-        return buffered.lines()
+        return fileUtil.getBufferedReader(inputFileName)
+                .lines()
                 .mapToLong(lineEvaluator)
                 .sum();
     }
