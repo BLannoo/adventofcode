@@ -1,6 +1,9 @@
 package com.blannoo.adventofcode.day3;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import java.util.HashMap;
 
 public class Day3ChallengeTest {
     @Test
@@ -18,5 +21,30 @@ public class Day3ChallengeTest {
         System.out.println("halfwaySecondSide: " + halfwaySecondSide);
         double answer = halfSide + halfwaySecondSide;
         System.out.println("answer: " + answer);
+    }
+
+    @Test
+    public void golden() throws Exception {
+        Assertions.assertThat(goldenChallenge(2)).isEqualTo(2);
+        Assertions.assertThat(goldenChallenge(23)).isEqualTo(23);
+        Assertions.assertThat(goldenChallenge(700)).isEqualTo(747);
+        Assertions.assertThat(goldenChallenge(289326)).isEqualTo(295229);
+    }
+
+    private int goldenChallenge(int input) {
+        HashMap<Coordinates, Integer> storage = new HashMap<>();
+        Coordinates coordinates = new Coordinates(0, 0);
+        int value = 1;
+        storage.put(coordinates, value);
+        while (value < input) {
+            coordinates = coordinates.next();
+            value = coordinates.getNeighbours()
+                    .stream()
+                    .filter(storage::containsKey)
+                    .mapToInt(storage::get)
+                    .sum();
+            storage.put(coordinates, value);
+        }
+        return value;
     }
 }
