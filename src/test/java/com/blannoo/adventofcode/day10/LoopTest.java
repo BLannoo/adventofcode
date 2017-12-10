@@ -10,7 +10,7 @@ public class LoopTest {
     private Loop loop = new Loop(5);
 
     @Test
-    public void example() throws Exception {
+    public void reverse() throws Exception {
         Assertions.assertThat(loop.getLoop()).isEqualTo(Arrays.asList(0, 1, 2, 3, 4));
 
         loop.reverse(3, 0);

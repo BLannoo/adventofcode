@@ -9,6 +9,8 @@ import java.util.stream.IntStream;
 class Loop {
 
     private final List<Integer> loop;
+    private int currentPosition = 0;
+    private int skipSize = 0;
 
     Loop(int loopSize) {
         loop = IntStream.range(0, loopSize)
@@ -31,5 +33,23 @@ class Loop {
 
     List<Integer> getLoop() {
         return new ArrayList<>(loop);
+    }
+
+    void hash(List<Integer> knotLengths) {
+        for (Integer knotLength : knotLengths) {
+            reverse(knotLength, currentPosition);
+            currentPosition += knotLength + skipSize;
+            skipSize++;
+        }
+    }
+
+    String mapToDenseHash(Densifier densifier) {
+        StringBuilder stringBuilder = new StringBuilder("");
+        for (int i = 0; i < 16; i++) {
+            List<Integer> section = loop.subList(i * 16, i * 16 + 16);
+            String sum = densifier.sum(section);
+            stringBuilder.append(sum);
+        }
+        return stringBuilder.toString();
     }
 }
