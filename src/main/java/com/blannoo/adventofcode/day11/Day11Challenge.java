@@ -5,13 +5,25 @@ import com.blannoo.adventofcode.utils.FileUtil;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 class Day11Challenge {
     private FileUtil fileUtil = new FileUtil();
 
     long silver(String fileName) throws IOException {
         List<Direction> inputs = getDirections(fileName);
+        return determineDistance(inputs);
+    }
 
+    long golden(String fileName) throws IOException {
+        List<Direction> inputs = getDirections(fileName);
+        return IntStream.range(0, inputs.size())
+                .mapToLong(index -> determineDistance(inputs.subList(0, index)))
+                .max()
+                .orElse(0);
+    }
+
+    private long determineDistance(List<Direction> inputs) {
         Map<Direction, Integer> directionCounts = countDirections(inputs);
 
         int horizontal = Math.abs(directionCounts.entrySet()

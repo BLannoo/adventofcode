@@ -16,4 +16,9 @@ public class Day11ChallengeTest {
         Assertions.assertThat(day11Challenge.silver("/day11/ownExample2.txt")).isEqualTo(8);
         Assertions.assertThat(day11Challenge.silver("/day11/challenge.txt")).isEqualTo(707);
     }
+
+    @Test
+    public void golden() throws Exception {
+        Assertions.assertThat(day11Challenge.golden("/day11/challenge.txt")).isEqualTo(1490);
+    }
 }
